@@ -19,6 +19,11 @@ x86/
 [Aa][Rr][Mm]64/
 bld/
 [Bb]in/
+# Ignore Visual Studio folder
+.vs/
+# Ignore binary and object files
+*.bin
+*.obj
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
@@ -52,3 +57,14 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Ignore appsettings.json files for all API projects
+**/appsettings.json
+# Also ignore development variants
+**/appsettings.Development.json
+/UserApi/UserDb.sqlite
+/UserApi/UserDb.sqlite-wal
+/UserApi/UserDb.sqlite-shm
+/angular_project_structure.md
+/DecoraAI_Blueprint_BW.pdf
+/project_structure.txt
