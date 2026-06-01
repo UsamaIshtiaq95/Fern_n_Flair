@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "Combinedc",
+    "Projects": [
+      {
+        "Path": "UserApi\\UserApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "UserAuthApi\\UserAuthApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "GatewayApi\\GatewayApi.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

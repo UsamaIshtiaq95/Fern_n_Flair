@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Text;
 using UserApi.Middleware;
+using StackExchange.Redis;
 using UserDomain.Entities;
 using UserDomain.Interface;
 
@@ -55,6 +56,22 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("UserDbConnection")));
+
+// Add CORS policy to allow frontend running on localhost:4200
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "AllowLocalhost4200",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
+// Register Redis connection
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+    ConnectionMultiplexer.Connect(builder.Configuration["Redis:ConnectionString"]));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -66,6 +83,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionMiddlware>();
+// Enable CORS for the frontend
+app.UseCors("AllowLocalhost4200");
 app.UseAuthentication();
 app.UseAuthorization();
 

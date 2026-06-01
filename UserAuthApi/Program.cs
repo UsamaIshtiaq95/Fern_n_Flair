@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer; // Add this using directive
 using Microsoft.IdentityModel.Tokens; // Add this using directive
 using System.Text;
 using UserAuthApi.Middleware;
+using StackExchange.Redis;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -57,6 +58,15 @@ builder.Services.AddAuthentication("Bearer")
 //builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("UserDbConnection")));
+
+// Register Redis connection
+//builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+//    ConnectionMultiplexer.Connect(builder.Configuration["Redis:ConnectionString"]));
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+    ConnectionMultiplexer.Connect(
+        ConfigurationOptions.Parse(builder.Configuration["Redis:ConnectionString"])
+        ?? new ConfigurationOptions { AbortOnConnectFail = false }
+    ));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -71,6 +81,7 @@ app.UseMiddleware<ExceptionMiddlware>();
 
 app.UseAuthentication(); 
 app.UseAuthorization();
+app.UseMiddleware<RedisCacheMiddleware>();
 
 app.MapControllers();
 
