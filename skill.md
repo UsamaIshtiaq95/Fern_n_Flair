@@ -34,6 +34,12 @@ DecorAI
 - **Run the frontend** – `npm start` from `frontend/`.
 - **Run tests** – Follow the test command described in each sub‑project’s README (e.g., `npm test`, `dotnet test`).
 
+## Running the new demo frontend
+
+1. Start the UserApi backend: open a terminal and run `dotnet run --project UserApi/UserApi.csproj`. Ensure it listens on https://localhost:5001.
+2. Open `frontend/index.html` in a browser or serve the `frontend/` directory with a static server. The demo posts to https://localhost:5001/api/design/generate.
+3. If running the frontend from a different origin (e.g., http://localhost:4200), update the CORS origins in `UserApi/Program.cs`.
+
 ## Useful Commands (for the AI)
 ```
 # List all API projects
