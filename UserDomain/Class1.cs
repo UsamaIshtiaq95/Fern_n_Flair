@@ -1,7 +1,7 @@
-namespace UserDomain
-{
-    public class Class1
-    {
+namespace UserDomain;
 
+    public class MessageDto
+    {
+        public string Role { get; set; } = "user";
+        public string Content { get; set; } = string.Empty;
     }
-}

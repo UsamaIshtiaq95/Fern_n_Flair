@@ -1,0 +1,256 @@
+{
+  "scannerProperties": [
+    {
+      "key": "sonar.scanner.app",
+      "value": "ScannerMSBuild"
+    },
+    {
+      "key": "sonar.scanner.appVersion",
+      "value": "11.2.1"
+    },
+    {
+      "key": "sonar.scanner.bootstrapStartTime",
+      "value": "1781859999000"
+    },
+    {
+      "key": "sonar.projectKey",
+      "value": "MicroservicesPRojectDecoraAI"
+    },
+    {
+      "key": "sonar.working.directory",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\.sonar"
+    },
+    {
+      "key": "sonar.projectBaseDir",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot"
+    },
+    {
+      "key": "sonar.pullrequest.cache.basepath",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot"
+    },
+    {
+      "key": "sonar.sources",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Application\\obj\\Application.csproj.nuget.dgspec.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Application\\obj\\project.assets.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.vs\\DecorAI\\config\\applicationhost.config,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.vs\\DecorAI\\v18\\DocumentLayout.backup.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.vs\\DecorAI\\v18\\DocumentLayout.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.vs\\MicrServices Demo\\config\\applicationhost.config,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.vs\\MicrServices Demo\\v18\\DocumentLayout.backup.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.vs\\MicrServices Demo\\v18\\DocumentLayout.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Application\\bin\\Debug\\net10.0\\Application.deps.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Application\\bin\\Debug\\net8.0\\Application.deps.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Application\\obj\\Debug\\net10.0\\Application.sourcelink.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Application\\obj\\Debug\\net8.0\\Application.sourcelink.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Test-Updated .postman_collection.json"
+    },
+    {
+      "key": "sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "sonar.modules",
+      "value": "82CFA3A9-09EB-4DB9-911C-89EA362BF658,3AF53D82-6E70-48BB-89E4-30BB73C5A029,AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D,CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB,75786C64-2103-41C3-875E-50B7CA3B0A05"
+    },
+    {
+      "key": "82CFA3A9-09EB-4DB9-911C-89EA362BF658.sonar.projectKey",
+      "value": "MicroservicesPRojectDecoraAI:82CFA3A9-09EB-4DB9-911C-89EA362BF658"
+    },
+    {
+      "key": "82CFA3A9-09EB-4DB9-911C-89EA362BF658.sonar.projectName",
+      "value": "UserDomain"
+    },
+    {
+      "key": "82CFA3A9-09EB-4DB9-911C-89EA362BF658.sonar.projectBaseDir",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain"
+    },
+    {
+      "key": "82CFA3A9-09EB-4DB9-911C-89EA362BF658.sonar.working.directory",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\.sonar\\mod0"
+    },
+    {
+      "key": "82CFA3A9-09EB-4DB9-911C-89EA362BF658.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "82CFA3A9-09EB-4DB9-911C-89EA362BF658.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "82CFA3A9-09EB-4DB9-911C-89EA362BF658.sonar.sources",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Class1.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\CustomExceptions.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Entities\\Admins.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Entities\\AIResults.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Entities\\ApiKeys.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Entities\\ChatMessages.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Entities\\Chats.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Entities\\Contexts.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Entities\\Images.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Entities\\Logs.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Entities\\Rooms.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Entities\\Users.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Exceptions.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\IAdminRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\IAIResultRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\IApiKeyRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\IChatMessageRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\IChatRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\IContextRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\IImageRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\ILogRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\IRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\IRoomRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\ITokenService.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\Interface\\IUserRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\obj\\project.assets.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\obj\\UserDomain.csproj.nuget.dgspec.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\bin\\Debug\\net10.0\\UserDomain.deps.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\bin\\Debug\\net8.0\\UserDomain.deps.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\obj\\Debug\\net10.0\\UserDomain.sourcelink.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserDomain\\obj\\Debug\\net8.0\\UserDomain.sourcelink.json"
+    },
+    {
+      "key": "82CFA3A9-09EB-4DB9-911C-89EA362BF658.sonar.cs.analyzer.projectOutPaths",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\0"
+    },
+    {
+      "key": "82CFA3A9-09EB-4DB9-911C-89EA362BF658.sonar.cs.roslyn.reportFilePaths",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\0\\Issues.json"
+    },
+    {
+      "key": "82CFA3A9-09EB-4DB9-911C-89EA362BF658.sonar.cs.scanner.telemetry",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\0\\Telemetry.json"
+    },
+    {
+      "key": "3AF53D82-6E70-48BB-89E4-30BB73C5A029.sonar.projectKey",
+      "value": "MicroservicesPRojectDecoraAI:3AF53D82-6E70-48BB-89E4-30BB73C5A029"
+    },
+    {
+      "key": "3AF53D82-6E70-48BB-89E4-30BB73C5A029.sonar.projectName",
+      "value": "GatewayApi"
+    },
+    {
+      "key": "3AF53D82-6E70-48BB-89E4-30BB73C5A029.sonar.projectBaseDir",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi"
+    },
+    {
+      "key": "3AF53D82-6E70-48BB-89E4-30BB73C5A029.sonar.working.directory",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\.sonar\\mod1"
+    },
+    {
+      "key": "3AF53D82-6E70-48BB-89E4-30BB73C5A029.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "3AF53D82-6E70-48BB-89E4-30BB73C5A029.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "3AF53D82-6E70-48BB-89E4-30BB73C5A029.sonar.sources",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\appsettings.Development.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\appsettings.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\ocelot.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\GatewayApi.csproj.nuget.dgspec.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\project.assets.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\Properties\\launchSettings.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\bin\\Debug\\net10.0\\appsettings.Development.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\bin\\Debug\\net10.0\\appsettings.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\bin\\Debug\\net10.0\\GatewayApi.deps.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\bin\\Debug\\net10.0\\GatewayApi.runtimeconfig.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\bin\\Debug\\net10.0\\GatewayApi.staticwebassets.endpoints.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\bin\\Debug\\net10.0\\ocelot.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\ApiEndpoints.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\GatewayApi.sourcelink.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\rjsmcshtml.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\rjsmrazor.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\rpswa.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\staticwebassets.build.endpoints.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\staticwebassets.build.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net8.0\\GatewayApi.sourcelink.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net8.0\\rpswa.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\Program.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\GatewayApi.GlobalUsings.g.cs,\"H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs\",H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\GatewayApi.AssemblyInfo.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\GatewayApi\\obj\\Debug\\net10.0\\GatewayApi.MvcApplicationPartsAssemblyInfo.cs"
+    },
+    {
+      "key": "3AF53D82-6E70-48BB-89E4-30BB73C5A029.sonar.cs.analyzer.projectOutPaths",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\1"
+    },
+    {
+      "key": "3AF53D82-6E70-48BB-89E4-30BB73C5A029.sonar.cs.roslyn.reportFilePaths",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\1\\Issues.json"
+    },
+    {
+      "key": "3AF53D82-6E70-48BB-89E4-30BB73C5A029.sonar.cs.scanner.telemetry",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\1\\Telemetry.json"
+    },
+    {
+      "key": "AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D.sonar.projectKey",
+      "value": "MicroservicesPRojectDecoraAI:AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D"
+    },
+    {
+      "key": "AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D.sonar.projectName",
+      "value": "Infrastructure"
+    },
+    {
+      "key": "AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D.sonar.projectBaseDir",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure"
+    },
+    {
+      "key": "AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D.sonar.working.directory",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\.sonar\\mod2"
+    },
+    {
+      "key": "AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D.sonar.sources",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\obj\\Infrastructure.csproj.nuget.dgspec.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\obj\\project.assets.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\bin\\Debug\\net10.0\\Infrastructure.deps.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\bin\\Debug\\net10.0\\Infrastructure.runtimeconfig.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\obj\\Debug\\net10.0\\Infrastructure.sourcelink.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\bin\\Debug\\net10.0\\BuildHost-net472\\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.exe.config,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\bin\\Debug\\net10.0\\BuildHost-netcore\\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.deps.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\bin\\Debug\\net10.0\\BuildHost-netcore\\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.runtimeconfig.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\AppDbContext.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Migrations\\20260408114124_InitialMigration.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Migrations\\20260408114124_InitialMigration.Designer.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Migrations\\AppDbContextModelSnapshot.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\AdminRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\AIResultRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\ApiKeyRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\ChatMessageRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\ChatRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\ContextRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\ImageRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\LogRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\Repository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\RoomRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Repositories\\UserRepository.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\Infrastructure\\Services\\JWTTokenProvider.cs"
+    },
+    {
+      "key": "AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D.sonar.cs.analyzer.projectOutPaths",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\2"
+    },
+    {
+      "key": "AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D.sonar.cs.roslyn.reportFilePaths",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\2\\Issues.json"
+    },
+    {
+      "key": "AFD69E5B-ABC1-413C-BA5C-2F16DBB3C72D.sonar.cs.scanner.telemetry",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\2\\Telemetry.json"
+    },
+    {
+      "key": "CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB.sonar.projectKey",
+      "value": "MicroservicesPRojectDecoraAI:CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB"
+    },
+    {
+      "key": "CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB.sonar.projectName",
+      "value": "UserApi"
+    },
+    {
+      "key": "CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB.sonar.projectBaseDir",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi"
+    },
+    {
+      "key": "CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB.sonar.working.directory",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\.sonar\\mod3"
+    },
+    {
+      "key": "CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB.sonar.sources",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\appsettings.Development.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\appsettings.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\project.assets.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\UserApi.csproj.nuget.dgspec.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Properties\\launchSettings.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\bin\\Debug\\net10.0\\appsettings.Development.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\bin\\Debug\\net10.0\\appsettings.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\bin\\Debug\\net10.0\\UserApi.deps.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\bin\\Debug\\net10.0\\UserApi.runtimeconfig.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\bin\\Debug\\net10.0\\UserApi.staticwebassets.endpoints.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\ApiEndpoints.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\rjsmcshtml.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\rjsmrazor.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\rpswa.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\staticwebassets.build.endpoints.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\staticwebassets.build.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\UserApi.sourcelink.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net8.0\\rpswa.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\bin\\Debug\\net10.0\\BuildHost-net472\\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.exe.config,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\bin\\Debug\\net10.0\\BuildHost-netcore\\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.deps.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\bin\\Debug\\net10.0\\BuildHost-netcore\\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.runtimeconfig.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\EndpointInfo\\UserApi.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\AdminsController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\AIResultsController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\ApiKeysController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\BaseController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\ChatMessagesController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\ChatsController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\ContextsController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\ImagesController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\LogsController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\RoomsController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Controllers\\UserApiController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Middleware\\ExceptionMiddlware.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\Program.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\WeatherForecast.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\UserApi.GlobalUsings.g.cs,\"H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs\",H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\UserApi.AssemblyInfo.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\obj\\Debug\\net10.0\\UserApi.MvcApplicationPartsAssemblyInfo.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\UserApi.http,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\UserDb.sqlite,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\UserDb.sqlite-shm,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserApi\\UserDb.sqlite-wal"
+    },
+    {
+      "key": "CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB.sonar.cs.analyzer.projectOutPaths",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\4"
+    },
+    {
+      "key": "CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB.sonar.cs.roslyn.reportFilePaths",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\4\\Issues.json"
+    },
+    {
+      "key": "CF242EF3-CB2C-46BE-80EC-3A087AF0BAEB.sonar.cs.scanner.telemetry",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\4\\Telemetry.json"
+    },
+    {
+      "key": "75786C64-2103-41C3-875E-50B7CA3B0A05.sonar.projectKey",
+      "value": "MicroservicesPRojectDecoraAI:75786C64-2103-41C3-875E-50B7CA3B0A05"
+    },
+    {
+      "key": "75786C64-2103-41C3-875E-50B7CA3B0A05.sonar.projectName",
+      "value": "UserAuthApi"
+    },
+    {
+      "key": "75786C64-2103-41C3-875E-50B7CA3B0A05.sonar.projectBaseDir",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi"
+    },
+    {
+      "key": "75786C64-2103-41C3-875E-50B7CA3B0A05.sonar.working.directory",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\.sonar\\mod4"
+    },
+    {
+      "key": "75786C64-2103-41C3-875E-50B7CA3B0A05.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "75786C64-2103-41C3-875E-50B7CA3B0A05.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "75786C64-2103-41C3-875E-50B7CA3B0A05.sonar.sources",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\appsettings.Development.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\appsettings.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\project.assets.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\UserAuthApi.csproj.nuget.dgspec.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\Properties\\launchSettings.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\bin\\Debug\\net10.0\\appsettings.Development.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\bin\\Debug\\net10.0\\appsettings.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\bin\\Debug\\net10.0\\UserAuthApi.deps.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\bin\\Debug\\net10.0\\UserAuthApi.runtimeconfig.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\bin\\Debug\\net10.0\\UserAuthApi.staticwebassets.endpoints.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\ApiEndpoints.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\rjsmcshtml.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\rjsmrazor.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\rpswa.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\staticwebassets.build.endpoints.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\staticwebassets.build.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\UserAuthApi.sourcelink.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net8.0\\rpswa.dswa.cache.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\EndpointInfo\\UserAuthApi.json,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\Controllers\\AuthApiController.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\Middleware\\ExceptionMiddlware.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\Program.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\WeatherForecast.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\UserAuthApi.GlobalUsings.g.cs,\"H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs\",H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\UserAuthApi.AssemblyInfo.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\obj\\Debug\\net10.0\\UserAuthApi.MvcApplicationPartsAssemblyInfo.cs,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\UserAuthApi.http,H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\UserAuthApi\\UserDb.sqlite"
+    },
+    {
+      "key": "75786C64-2103-41C3-875E-50B7CA3B0A05.sonar.cs.analyzer.projectOutPaths",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\5"
+    },
+    {
+      "key": "75786C64-2103-41C3-875E-50B7CA3B0A05.sonar.cs.roslyn.reportFilePaths",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\5\\Issues.json"
+    },
+    {
+      "key": "75786C64-2103-41C3-875E-50B7CA3B0A05.sonar.cs.scanner.telemetry",
+      "value": "H:\\Projects for Practice\\MicroServices-Implementation-Using-Ocelot\\.sonarqube\\out\\5\\Telemetry.json"
+    },
+    {
+      "key": "sonar.token",
+      "value": "***"
+    },
+    {
+      "key": "sonar.host.url",
+      "value": "http://localhost:9000"
+    },
+    {
+      "key": "sonar.visualstudio.enable",
+      "value": "false"
+    }
+  ]
+}

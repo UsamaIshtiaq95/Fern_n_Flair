@@ -1,7 +1,9 @@
+using Application.DTO;
 using Application.Request;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using UserApi.Controllers;
+using UserDomain;
 
 namespace UserApi.Controllers;
 
@@ -10,10 +12,12 @@ namespace UserApi.Controllers;
 public class ContextsController : BaseController
 {
     private readonly IMediator _mediator;
+    private readonly IAnthropicService _anthropic;
 
-    public ContextsController(IMediator mediator)
+    public ContextsController(IMediator mediator, IAnthropicService anthropic)
     {
         _mediator = mediator;
+        _anthropic = anthropic;
     }
 
     [HttpGet]
@@ -51,4 +55,13 @@ public class ContextsController : BaseController
         var result = await _mediator.Send(new DeleteContextRequest { Id = id });
         return HandleDeleteResult("Context deleted successfully");
     }
+
+    [HttpPost("ask")]
+    public async Task<IActionResult> Ask([FromBody] List<MessageDto> context, CancellationToken ct)
+    {
+        if (context == null || context.Count == 0) return BadRequest("Context is required.");
+        var rawResponse = await _anthropic.SendContextAndGetRawResponseAsync(context, ct);
+        return Content(rawResponse, "application/json");
+    }
+
 }

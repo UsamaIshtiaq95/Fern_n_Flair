@@ -1,0 +1,1 @@
+lR_H:\Projects for Practice\MicroServices-Implementation-Using-Ocelot\GatewayApi\GatewayApi.csprojòCSharp14
