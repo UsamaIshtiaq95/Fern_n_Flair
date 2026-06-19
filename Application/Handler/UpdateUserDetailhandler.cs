@@ -24,7 +24,8 @@ public class UpdateUserDetailHandler : IRequestHandler<UpdateUserDetailRequest, 
         if (existing == null||existing==0)
             throw new NotFoundException("No user found with this email");
         var user = new Users
-        {Email=request.Email,
+        {   Username=request.Name  ,
+            Email=request.Email,
             Name = request.Name,
 
         };

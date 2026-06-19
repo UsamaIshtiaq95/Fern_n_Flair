@@ -1,6 +1,5 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using GatewayApi.Middleware;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,7 +32,7 @@ catch (Exception ex)
 //builder.Services.AddAuthorization();
 var app = builder.Build();
 app.UseHttpsRedirection();
-app.UseMiddleware<RedisCacheMiddleware>();
+//app.UseMiddleware<RedisCacheMiddleware>();
 
 //app.UseAuthorization();
 // ? Intercept /swagger before Ocelot handles it

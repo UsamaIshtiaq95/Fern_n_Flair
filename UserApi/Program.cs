@@ -56,7 +56,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("UserDbConnection")));
-
+builder.Services.AddHttpClient<IAnthropicService, AnthropicService>(client =>
+{
+    client.BaseAddress = new Uri("https://api.anthropic.com");
+});
 // Add CORS policy to allow frontend running on localhost:4200
 builder.Services.AddCors(options =>
 {
@@ -72,6 +75,13 @@ builder.Services.AddCors(options =>
 // Register Redis connection
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
     ConnectionMultiplexer.Connect(builder.Configuration["Redis:ConnectionString"]));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader());
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -84,7 +94,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionMiddlware>();
 // Enable CORS for the frontend
-app.UseCors("AllowLocalhost4200");
+app.UseCors("AllowAll");
+
 app.UseAuthentication();
 app.UseAuthorization();
 

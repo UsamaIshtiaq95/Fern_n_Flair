@@ -62,11 +62,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Register Redis connection
 //builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
 //    ConnectionMultiplexer.Connect(builder.Configuration["Redis:ConnectionString"]));
-builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
-    ConnectionMultiplexer.Connect(
-        ConfigurationOptions.Parse(builder.Configuration["Redis:ConnectionString"])
-        ?? new ConfigurationOptions { AbortOnConnectFail = false }
-    ));
+//builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+//    ConnectionMultiplexer.Connect(
+//        ConfigurationOptions.Parse(builder.Configuration["Redis:ConnectionString"])
+//        ?? new ConfigurationOptions { AbortOnConnectFail = false }
+//    ));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -81,7 +81,7 @@ app.UseMiddleware<ExceptionMiddlware>();
 
 app.UseAuthentication(); 
 app.UseAuthorization();
-app.UseMiddleware<RedisCacheMiddleware>();
+//app.UseMiddleware<RedisCacheMiddleware>();
 
 app.MapControllers();
 
