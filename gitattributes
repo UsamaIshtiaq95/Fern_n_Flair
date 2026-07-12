@@ -1,0 +1,9 @@
+# Force correct language detection
+*.cs linguist-language=C#
+*.cshtml linguist-language=C#
+
+# Exclude non-source files from language stats
+curl linguist-vendored
+.sonarqube/** linguist-vendored
+*.json linguist-vendored
+*.postman_collection.json linguist-vendored
