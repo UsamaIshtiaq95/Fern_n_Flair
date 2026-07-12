@@ -26,6 +26,7 @@ public class CreateLogHandler : IRequestHandler<CreateLogRequest, CreateLogRespo
         };
 
         var createdLog = await _logRepository.AddAsync(log);
+        await _logRepository.SaveChangesAsync(cancellationToken);
 
         return new CreateLogResponse
         {
@@ -139,6 +140,7 @@ public class UpdateLogHandler : IRequestHandler<UpdateLogRequest, UpdateLogRespo
         log.Action = request.LogDto.Action;
 
         await _logRepository.UpdateAsync(log);
+        await _logRepository.SaveChangesAsync(cancellationToken);
 
         return new UpdateLogResponse { Message = "Log updated successfully" };
     }
@@ -161,6 +163,7 @@ public class DeleteLogHandler : IRequestHandler<DeleteLogRequest, DeleteLogRespo
             throw new NotFoundException("Log not found");
 
         await _logRepository.DeleteAsync(request.Id);
+        await _logRepository.SaveChangesAsync(cancellationToken);
 
         return new DeleteLogResponse { Message = "Log deleted successfully" };
     }

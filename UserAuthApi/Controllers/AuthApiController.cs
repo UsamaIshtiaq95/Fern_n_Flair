@@ -1,49 +1,35 @@
-using Applicatiom.Request;
+using Application.Request;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using UserDomain;
 
+namespace UserAuthApi.Controllers;
 
-namespace UserAuthApi.Controllers
+[Route("api/auth")]
+[ApiController]
+public class AuthApiController : ControllerBase
 {
-    [Route("api/auth")]
-    [ApiController]
-    public class AuthApiController : ControllerBase
+    private readonly IMediator _mediator;
+
+    public AuthApiController(IMediator mediator)
     {
-        public readonly IMediator _mediatr;
-        public AuthApiController(IMediator mediatr)
-        {
-            _mediatr = mediatr;
-            
-        }
+        _mediator = mediator;
+    }
 
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterRequest request, CancellationToken cancellationToken)
-        {
-            try
-            {
-                var result = await _mediatr.Send(request);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            { throw new BadRequestException("Bad Request"); }
-            
-            
-            }
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterRequest request, CancellationToken cancellationToken)
+    {
+        var result = await _mediator.Send(request, cancellationToken);
+        return Ok(result);
+    }
 
-        [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginRequest request)
-        {
-            try {
-                if(request  is null)
-                    throw new BadRequestException("Null data inserted");
-                var result = _mediatr.Send(request);
-                return Ok(result);
-            } 
-            catch (Exception ex)
-            { throw new BadRequestException("Bad Request"); }
-            }
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginRequest request, CancellationToken cancellationToken)
+    {
+        if (request is null)
+            throw new BadRequestException("Null data inserted");
 
-
+        var result = await _mediator.Send(request, cancellationToken);
+        return Ok(result);
     }
 }

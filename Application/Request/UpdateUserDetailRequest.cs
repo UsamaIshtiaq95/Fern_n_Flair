@@ -1,7 +1,7 @@
-using Applicatiom.Response;
+using Application.Response;
 using MediatR;
 
-namespace Applicatiom.Request;
+namespace Application.Request;
 
 public class UpdateUserDetailRequest : IRequest<UpdateUserDetailResponse>
 {

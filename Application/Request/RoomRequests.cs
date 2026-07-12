@@ -18,6 +18,8 @@ public class CreateRoomResponse
 // Room Get All
 public class GetAllRoomsRequest : IRequest<GetAllRoomsResponse>
 {
+    public int? Skip { get; set; }
+    public int? Take { get; set; }
 }
 
 public class GetAllRoomsResponse

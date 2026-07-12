@@ -3,8 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UserDomain.Entities;
 
-
-
 public class Users
 {
     [Key]
@@ -24,6 +22,7 @@ public class Users
 
     public bool IsActive { get; set; } = true;
     public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
     public ICollection<Chats> Chats { get; set; }
     public ICollection<Logs> Logs { get; set; }

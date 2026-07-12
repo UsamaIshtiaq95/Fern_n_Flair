@@ -1,8 +1,8 @@
 namespace UserApi.Middleware;
-    public class ExceptionMiddlware
+    public class ExceptionMiddleware
 {
     private readonly RequestDelegate _next;
-    public ExceptionMiddlware(RequestDelegate next)
+    public ExceptionMiddleware(RequestDelegate next)
     {
         _next = next;
     }

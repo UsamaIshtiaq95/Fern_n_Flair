@@ -2,6 +2,7 @@ namespace Application.DTO;
 
 public class ChatCreateDto
 {
+    public string Title { get; set; }
     public int RoomId { get; set; }
     public int UserId { get; set; }
     public int ContextId { get; set; }
@@ -9,14 +10,13 @@ public class ChatCreateDto
 
 public class ChatUpdateDto
 {
-    public int RoomId { get; set; }
-    public int UserId { get; set; }
-    public int ContextId { get; set; }
+    public string Title { get; set; }
 }
 
 public class ChatResponseDto
 {
     public int ChatId { get; set; }
+    public string Title { get; set; }
     public int RoomId { get; set; }
     public string RoomName { get; set; }
     public int UserId { get; set; }

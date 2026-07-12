@@ -1,6 +1,6 @@
 using MediatR;
-using Applicatiom.Response;
-namespace Applicatiom.Request;
+using Application.Response;
+namespace Application.Request;
 public class LoginRequest : IRequest<LoginResponse>
 {
     public string Email { get; set; }

@@ -28,6 +28,7 @@ public class CreateAdminHandler : IRequestHandler<CreateAdminRequest, CreateAdmi
         };
 
         var createdAdmin = await _adminRepository.AddAsync(admin);
+        await _adminRepository.SaveChangesAsync(cancellationToken);
 
         return new CreateAdminResponse
         {
@@ -121,6 +122,7 @@ public class UpdateAdminHandler : IRequestHandler<UpdateAdminRequest, UpdateAdmi
         admin.IsActive = request.AdminDto.IsActive;
 
         await _adminRepository.UpdateAsync(admin);
+        await _adminRepository.SaveChangesAsync(cancellationToken);
 
         return new UpdateAdminResponse { Message = "Admin updated successfully" };
     }
@@ -143,6 +145,7 @@ public class DeleteAdminHandler : IRequestHandler<DeleteAdminRequest, DeleteAdmi
             throw new NotFoundException("Admin not found");
 
         await _adminRepository.DeleteAsync(request.Id);
+        await _adminRepository.SaveChangesAsync(cancellationToken);
 
         return new DeleteAdminResponse { Message = "Admin deleted successfully" };
     }

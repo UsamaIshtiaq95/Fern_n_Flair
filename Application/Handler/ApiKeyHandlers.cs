@@ -26,6 +26,7 @@ public class CreateApiKeyHandler : IRequestHandler<CreateApiKeyRequest, CreateAp
         };
 
         var createdApiKey = await _apiKeyRepository.AddAsync(apiKey);
+        await _apiKeyRepository.SaveChangesAsync(cancellationToken);
 
         return new CreateApiKeyResponse
         {
@@ -144,6 +145,7 @@ public class UpdateApiKeyHandler : IRequestHandler<UpdateApiKeyRequest, UpdateAp
         apiKey.Key = request.ApiKeyDto.Key;
 
         await _apiKeyRepository.UpdateAsync(apiKey);
+        await _apiKeyRepository.SaveChangesAsync(cancellationToken);
 
         return new UpdateApiKeyResponse { Message = "API key updated successfully" };
     }
@@ -166,6 +168,7 @@ public class DeleteApiKeyHandler : IRequestHandler<DeleteApiKeyRequest, DeleteAp
             throw new NotFoundException("API key not found");
 
         await _apiKeyRepository.DeleteAsync(request.Id);
+        await _apiKeyRepository.SaveChangesAsync(cancellationToken);
 
         return new DeleteApiKeyResponse { Message = "API key deleted successfully" };
     }

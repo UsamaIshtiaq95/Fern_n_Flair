@@ -22,25 +22,28 @@ public class Repository<T> : IRepository<T> where T : class
 
     public virtual async Task<IEnumerable<T>> GetAllAsync()
     {
-        return await _dbSet.ToListAsync();
+        return await _dbSet.AsNoTracking().ToListAsync();
+    }
+
+    public virtual async Task<IEnumerable<T>> GetAllAsync(int skip, int take)
+    {
+        return await _dbSet.AsNoTracking().Skip(skip).Take(take).ToListAsync();
     }
 
     public virtual async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
     {
-        return await _dbSet.Where(predicate).ToListAsync();
+        return await _dbSet.AsNoTracking().Where(predicate).ToListAsync();
     }
 
     public virtual async Task<T> AddAsync(T entity)
     {
         await _dbSet.AddAsync(entity);
-        await _context.SaveChangesAsync();
         return entity;
     }
 
     public virtual async Task UpdateAsync(T entity)
     {
         _context.Entry(entity).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
     }
 
     public virtual async Task DeleteAsync(int id)
@@ -49,13 +52,31 @@ public class Repository<T> : IRepository<T> where T : class
         if (entity != null)
         {
             _dbSet.Remove(entity);
-            await _context.SaveChangesAsync();
         }
     }
 
     public virtual async Task<bool> ExistsAsync(int id)
     {
-        var entity = await _dbSet.FindAsync(id);
-        return entity != null;
+        return await _dbSet.AsNoTracking().AnyAsync(e => EF.Property<int>(e, "Id") == id);
+    }
+
+    public virtual async Task<int> CountAsync()
+    {
+        return await _dbSet.AsNoTracking().CountAsync();
+    }
+
+    public virtual async Task<int> CountAsync(Expression<Func<T, bool>> predicate)
+    {
+        return await _dbSet.AsNoTracking().CountAsync(predicate);
+    }
+
+    public virtual IQueryable<T> Query()
+    {
+        return _dbSet.AsNoTracking();
+    }
+
+    public virtual async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        return await _context.SaveChangesAsync(cancellationToken);
     }
 }

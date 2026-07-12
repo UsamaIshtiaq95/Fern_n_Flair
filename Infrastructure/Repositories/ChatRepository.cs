@@ -13,21 +13,18 @@ public class ChatRepository : Repository<Chats>, IChatRepository
     public async Task<IEnumerable<Chats>> GetByUserIdAsync(int userId)
     {
         return await _dbSet
+            .AsNoTracking()
             .Include(c => c.Room)
-            .Include(c => c.Context)
-            .Include(c => c.ChatMessages)
-            .Include(c => c.AIResults)
             .Where(c => c.UserId == userId)
+            .OrderByDescending(c => c.UpdatedAt)
             .ToListAsync();
     }
 
     public async Task<IEnumerable<Chats>> GetByRoomIdAsync(int roomId)
     {
         return await _dbSet
+            .AsNoTracking()
             .Include(c => c.Room)
-            .Include(c => c.Context)
-            .Include(c => c.ChatMessages)
-            .Include(c => c.AIResults)
             .Where(c => c.RoomId == roomId)
             .ToListAsync();
     }

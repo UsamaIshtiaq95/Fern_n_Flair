@@ -3,21 +3,18 @@ using Infrastructure;
 using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using UserDomain.Entities;
 using UserDomain.Interface;
-using Microsoft.AspNetCore.Authentication.JwtBearer; // Add this using directive
-using Microsoft.IdentityModel.Tokens; // Add this using directive
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using UserAuthApi.Middleware;
-using StackExchange.Redis;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPasswordHasher<Users>, PasswordHasher<Users>>();
 builder.Services.AddScoped<ITokenService, TokenService>();
-
-// Register all repositories
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 builder.Services.AddScoped<IContextRepository, ContextRepository>();
@@ -29,14 +26,14 @@ builder.Services.AddScoped<IImageRepository, ImageRepository>();
 builder.Services.AddScoped<IApiKeyRepository, ApiKeyRepository>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssemblyContaining<RegisterHandler>();
-   
 });
+
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
@@ -51,38 +48,26 @@ builder.Services.AddAuthentication("Bearer")
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"]!)),
             ValidateLifetime = true
         };
-      // Add this using directive
-
-        // Ensure these namespaces are included at the top of your file
     });
-//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("UserDbConnection")));
 
-// Register Redis connection
-//builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
-//    ConnectionMultiplexer.Connect(builder.Configuration["Redis:ConnectionString"]));
-//builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
-//    ConnectionMultiplexer.Connect(
-//        ConfigurationOptions.Parse(builder.Configuration["Redis:ConnectionString"])
-//        ?? new ConfigurationOptions { AbortOnConnectFail = false }
-//    ));
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+else
+{
+    app.UseHttpsRedirection();
+}
 
-app.UseHttpsRedirection();
-app.UseMiddleware<ExceptionMiddlware>();
-
-app.UseAuthentication(); 
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseAuthentication();
 app.UseAuthorization();
-//app.UseMiddleware<RedisCacheMiddleware>();
-
 app.MapControllers();
 
 app.Run();

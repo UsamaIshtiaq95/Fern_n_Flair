@@ -4,25 +4,100 @@
       "DownstreamPathTemplate": "/api/auth/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5210
-        }
+        { "Host": "localhost", "Port": 5210 }
       ],
       "UpstreamPathTemplate": "/api/auth/{everything}",
       "UpstreamHttpMethod": [ "POST", "GET" ]
     },
     {
-      "DownstreamPathTemplate": "/api/user/{everything}",
+      "DownstreamPathTemplate": "/api/rooms/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5262
-        }
+        { "Host": "localhost", "Port": 5262 }
       ],
-      "UpstreamPathTemplate": "/api/user/{everything}",
-      "UpstreamHttpMethod": [ "GET", "PUT","PATCH" ]
+      "UpstreamPathTemplate": "/api/rooms/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/chats/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5262 }
+      ],
+      "UpstreamPathTemplate": "/api/chats/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/chatmessages/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5262 }
+      ],
+      "UpstreamPathTemplate": "/api/chatmessages/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/design/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5262 }
+      ],
+      "UpstreamPathTemplate": "/api/design/{everything}",
+      "UpstreamHttpMethod": [ "POST", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/images/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5262 }
+      ],
+      "UpstreamPathTemplate": "/api/images/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/airesults/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5262 }
+      ],
+      "UpstreamPathTemplate": "/api/airesults/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/contexts/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5262 }
+      ],
+      "UpstreamPathTemplate": "/api/contexts/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/logs/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5262 }
+      ],
+      "UpstreamPathTemplate": "/api/logs/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/apikeys/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5262 }
+      ],
+      "UpstreamPathTemplate": "/api/apikeys/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/admins/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5262 }
+      ],
+      "UpstreamPathTemplate": "/api/admins/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
     }
   ],
   "GlobalConfiguration": {
