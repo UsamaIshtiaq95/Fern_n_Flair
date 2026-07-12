@@ -21,11 +21,15 @@ public class CreateRoomHandler : IRequestHandler<CreateRoomRequest, CreateRoomRe
         var room = new Rooms
         {
             RoomName = request.RoomDto.RoomName,
-            RoomSize = request.RoomDto.RoomSize,
-            CreatedAt = DateTime.Now
+            Length = request.RoomDto.Length,
+            Width = request.RoomDto.Width,
+            Height = request.RoomDto.Height,
+            Unit = request.RoomDto.Unit ?? "ft",
+            CreatedAt = DateTime.UtcNow
         };
 
         var createdRoom = await _roomRepository.AddAsync(room);
+        await _roomRepository.SaveChangesAsync(cancellationToken);
 
         return new CreateRoomResponse
         {
@@ -33,7 +37,10 @@ public class CreateRoomHandler : IRequestHandler<CreateRoomRequest, CreateRoomRe
             {
                 RoomId = createdRoom.RoomId,
                 RoomName = createdRoom.RoomName,
-                RoomSize = createdRoom.RoomSize,
+                Length = createdRoom.Length,
+                Width = createdRoom.Width,
+                Height = createdRoom.Height,
+                Unit = createdRoom.Unit,
                 CreatedAt = createdRoom.CreatedAt
             },
             Message = "Room created successfully"
@@ -52,13 +59,21 @@ public class GetAllRoomsHandler : IRequestHandler<GetAllRoomsRequest, GetAllRoom
 
     public async Task<GetAllRoomsResponse> Handle(GetAllRoomsRequest request, CancellationToken cancellationToken)
     {
-        var rooms = await _roomRepository.GetAllAsync();
+        IEnumerable<Rooms> rooms;
+
+        if (request.Skip.HasValue && request.Take.HasValue)
+            rooms = await _roomRepository.GetAllAsync(request.Skip.Value, request.Take.Value);
+        else
+            rooms = await _roomRepository.GetAllAsync();
 
         var roomDtos = rooms.Select(r => new RoomResponseDto
         {
             RoomId = r.RoomId,
             RoomName = r.RoomName,
-            RoomSize = r.RoomSize,
+            Length = r.Length,
+            Width = r.Width,
+            Height = r.Height,
+            Unit = r.Unit,
             CreatedAt = r.CreatedAt
         });
 
@@ -88,7 +103,10 @@ public class GetRoomByIdHandler : IRequestHandler<GetRoomByIdRequest, GetRoomByI
             {
                 RoomId = room.RoomId,
                 RoomName = room.RoomName,
-                RoomSize = room.RoomSize,
+                Length = room.Length,
+                Width = room.Width,
+                Height = room.Height,
+                Unit = room.Unit,
                 CreatedAt = room.CreatedAt
             }
         };
@@ -112,9 +130,14 @@ public class UpdateRoomHandler : IRequestHandler<UpdateRoomRequest, UpdateRoomRe
             throw new NotFoundException("Room not found");
 
         room.RoomName = request.RoomDto.RoomName;
-        room.RoomSize = request.RoomDto.RoomSize;
+        room.Length = request.RoomDto.Length;
+        room.Width = request.RoomDto.Width;
+        room.Height = request.RoomDto.Height;
+        room.Unit = request.RoomDto.Unit ?? room.Unit;
+        room.UpdatedAt = DateTime.UtcNow;
 
         await _roomRepository.UpdateAsync(room);
+        await _roomRepository.SaveChangesAsync(cancellationToken);
 
         return new UpdateRoomResponse { Message = "Room updated successfully" };
     }
@@ -136,7 +159,13 @@ public class DeleteRoomHandler : IRequestHandler<DeleteRoomRequest, DeleteRoomRe
         if (room == null)
             throw new NotFoundException("Room not found");
 
-        await _roomRepository.DeleteAsync(request.Id);
+        if (room.IsDeleted)
+            throw new BadRequestException("Room already deleted");
+
+        room.IsDeleted = true;
+        room.UpdatedAt = DateTime.UtcNow;
+        await _roomRepository.UpdateAsync(room);
+        await _roomRepository.SaveChangesAsync(cancellationToken);
 
         return new DeleteRoomResponse { Message = "Room deleted successfully" };
     }

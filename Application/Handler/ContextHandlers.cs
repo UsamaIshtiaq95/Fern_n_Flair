@@ -27,6 +27,7 @@ public class CreateContextHandler : IRequestHandler<CreateContextRequest, Create
         };
 
         var createdContext = await _contextRepository.AddAsync(context);
+        await _contextRepository.SaveChangesAsync(cancellationToken);
 
         return new CreateContextResponse
         {
@@ -120,6 +121,7 @@ public class UpdateContextHandler : IRequestHandler<UpdateContextRequest, Update
         context.SourceAI = request.ContextDto.SourceAI;
 
         await _contextRepository.UpdateAsync(context);
+        await _contextRepository.SaveChangesAsync(cancellationToken);
 
         return new UpdateContextResponse { Message = "Context updated successfully" };
     }
@@ -142,6 +144,7 @@ public class DeleteContextHandler : IRequestHandler<DeleteContextRequest, Delete
             throw new NotFoundException("Context not found");
 
         await _contextRepository.DeleteAsync(request.Id);
+        await _contextRepository.SaveChangesAsync(cancellationToken);
 
         return new DeleteContextResponse { Message = "Context deleted successfully" };
     }

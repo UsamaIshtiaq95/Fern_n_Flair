@@ -1,5 +1,5 @@
-using Applicatiom.Request;
-using Applicatiom.Response;
+using Application.Request;
+using Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.JsonWebTokens;

@@ -12,11 +12,12 @@ public class ChatMessages
     public int ChatId { get; set; }
     public Chats Chat { get; set; }
 
-    [Required, MaxLength(50)]
-    public string Sender { get; set; }  // "User" or "AI"
+    [Required, MaxLength(20)]
+    public string Sender { get; set; }
 
     [Required]
     public string MessageText { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public bool IsDeleted { get; set; } = false;
 }

@@ -11,6 +11,12 @@ public class Images
     public int? RoomId { get; set; }
     public Rooms Room { get; set; }
 
+    public int? ChatId { get; set; }
+    public Chats Chat { get; set; }
+
+    public int? MessageId { get; set; }
+    public ChatMessages Message { get; set; }
+
     [Required, MaxLength(255)]
     public string FileName { get; set; }
 

@@ -27,6 +27,7 @@ public class CreateImageHandler : IRequestHandler<CreateImageRequest, CreateImag
         };
 
         var createdImage = await _imageRepository.AddAsync(image);
+        await _imageRepository.SaveChangesAsync(cancellationToken);
 
         return new CreateImageResponse
         {
@@ -146,6 +147,7 @@ public class UpdateImageHandler : IRequestHandler<UpdateImageRequest, UpdateImag
         image.FilePath = request.ImageDto.FilePath;
 
         await _imageRepository.UpdateAsync(image);
+        await _imageRepository.SaveChangesAsync(cancellationToken);
 
         return new UpdateImageResponse { Message = "Image updated successfully" };
     }
@@ -168,6 +170,7 @@ public class DeleteImageHandler : IRequestHandler<DeleteImageRequest, DeleteImag
             throw new NotFoundException("Image not found");
 
         await _imageRepository.DeleteAsync(request.Id);
+        await _imageRepository.SaveChangesAsync(cancellationToken);
 
         return new DeleteImageResponse { Message = "Image deleted successfully" };
     }

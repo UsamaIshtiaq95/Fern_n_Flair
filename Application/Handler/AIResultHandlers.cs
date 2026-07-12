@@ -27,6 +27,7 @@ public class CreateAIResultHandler : IRequestHandler<CreateAIResultRequest, Crea
         };
 
         var createdAIResult = await _aiResultRepository.AddAsync(aiResult);
+        await _aiResultRepository.SaveChangesAsync(cancellationToken);
 
         return new CreateAIResultResponse
         {
@@ -145,6 +146,7 @@ public class UpdateAIResultHandler : IRequestHandler<UpdateAIResultRequest, Upda
         aiResult.AIUsed = request.AIResultDto.AIUsed;
 
         await _aiResultRepository.UpdateAsync(aiResult);
+        await _aiResultRepository.SaveChangesAsync(cancellationToken);
 
         return new UpdateAIResultResponse { Message = "AI result updated successfully" };
     }
@@ -167,6 +169,7 @@ public class DeleteAIResultHandler : IRequestHandler<DeleteAIResultRequest, Dele
             throw new NotFoundException("AI result not found");
 
         await _aiResultRepository.DeleteAsync(request.Id);
+        await _aiResultRepository.SaveChangesAsync(cancellationToken);
 
         return new DeleteAIResultResponse { Message = "AI result deleted successfully" };
     }

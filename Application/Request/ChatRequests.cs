@@ -18,6 +18,8 @@ public class CreateChatResponse
 // Chat Get All
 public class GetAllChatsRequest : IRequest<GetAllChatsResponse>
 {
+    public int? Skip { get; set; }
+    public int? Take { get; set; }
 }
 
 public class GetAllChatsResponse

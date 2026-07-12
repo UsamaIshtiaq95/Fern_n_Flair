@@ -7,4 +7,5 @@ public interface IUserRepository
     Task<Users> GetLoginAsync(string email);
     Task AddAsync(Users user);
     Task<int> UpdateDetailsAsync(Users user);
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

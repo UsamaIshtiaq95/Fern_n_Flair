@@ -3,14 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UserDomain.Entities;
 
-
 public class Contexts
 {
     [Key]
     public int ContextId { get; set; }
-
-    [Required]
-    public int RoomCount { get; set; }
 
     public string ContextData { get; set; }
 
@@ -18,4 +14,6 @@ public class Contexts
     public string SourceAI { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+    public ICollection<Chats> Chats { get; set; }
 }

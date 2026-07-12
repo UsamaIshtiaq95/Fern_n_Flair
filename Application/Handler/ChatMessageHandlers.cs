@@ -27,6 +27,7 @@ public class CreateChatMessageHandler : IRequestHandler<CreateChatMessageRequest
         };
 
         var createdChatMessage = await _chatMessageRepository.AddAsync(chatMessage);
+        await _chatMessageRepository.SaveChangesAsync(cancellationToken);
 
         return new CreateChatMessageResponse
         {
@@ -144,6 +145,7 @@ public class UpdateChatMessageHandler : IRequestHandler<UpdateChatMessageRequest
         chatMessage.MessageText = request.ChatMessageDto.MessageText;
 
         await _chatMessageRepository.UpdateAsync(chatMessage);
+        await _chatMessageRepository.SaveChangesAsync(cancellationToken);
 
         return new UpdateChatMessageResponse { Message = "Chat message updated successfully" };
     }
@@ -165,7 +167,12 @@ public class DeleteChatMessageHandler : IRequestHandler<DeleteChatMessageRequest
         if (chatMessage == null)
             throw new NotFoundException("Chat message not found");
 
-        await _chatMessageRepository.DeleteAsync(request.Id);
+        if (chatMessage.IsDeleted)
+            throw new BadRequestException("Message already deleted");
+
+        chatMessage.IsDeleted = true;
+        await _chatMessageRepository.UpdateAsync(chatMessage);
+        await _chatMessageRepository.SaveChangesAsync(cancellationToken);
 
         return new DeleteChatMessageResponse { Message = "Chat message deleted successfully" };
     }
