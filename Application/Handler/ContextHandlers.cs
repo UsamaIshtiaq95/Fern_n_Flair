@@ -7,6 +7,36 @@ using UserDomain.Interface;
 
 namespace Application.Handler;
 
+public class GetContextByTypeHandler : IRequestHandler<GetContextByTypeRequest, GetContextByTypeResponse>
+{
+    private readonly IContextRepository _contextRepository;
+
+    public GetContextByTypeHandler(IContextRepository contextRepository)
+    {
+        _contextRepository = contextRepository;
+    }
+
+    public async Task<GetContextByTypeResponse> Handle(GetContextByTypeRequest request, CancellationToken cancellationToken)
+    {
+        var context = await _contextRepository.GetByTypeAsync(request.Type);
+        if (context == null)
+            throw new NotFoundException($"Context not found for type: {request.Type}");
+
+        return new GetContextByTypeResponse
+        {
+            Context = new ContextResponseDto
+            {
+                ContextId = context.ContextId,
+                RoomCount = context.RoomCount,
+                ContextData = context.ContextData,
+                SourceAI = context.SourceAI,
+                Type = context.Type,
+                CreatedAt = context.CreatedAt
+            }
+        };
+    }
+}
+
 public class CreateContextHandler : IRequestHandler<CreateContextRequest, CreateContextResponse>
 {
     private readonly IContextRepository _contextRepository;
@@ -23,6 +53,7 @@ public class CreateContextHandler : IRequestHandler<CreateContextRequest, Create
             RoomCount = request.ContextDto.RoomCount,
             ContextData = request.ContextDto.ContextData,
             SourceAI = request.ContextDto.SourceAI,
+            Type = request.ContextDto.Type ?? "home-single",
             CreatedAt = DateTime.Now
         };
 
@@ -37,6 +68,7 @@ public class CreateContextHandler : IRequestHandler<CreateContextRequest, Create
                 RoomCount = createdContext.RoomCount,
                 ContextData = createdContext.ContextData,
                 SourceAI = createdContext.SourceAI,
+                Type = createdContext.Type,
                 CreatedAt = createdContext.CreatedAt
             },
             Message = "Context created successfully"
@@ -63,6 +95,7 @@ public class GetAllContextsHandler : IRequestHandler<GetAllContextsRequest, GetA
             RoomCount = c.RoomCount,
             ContextData = c.ContextData,
             SourceAI = c.SourceAI,
+            Type = c.Type,
             CreatedAt = c.CreatedAt
         });
 
@@ -94,6 +127,7 @@ public class GetContextByIdHandler : IRequestHandler<GetContextByIdRequest, GetC
                 RoomCount = context.RoomCount,
                 ContextData = context.ContextData,
                 SourceAI = context.SourceAI,
+                Type = context.Type,
                 CreatedAt = context.CreatedAt
             }
         };
@@ -119,6 +153,7 @@ public class UpdateContextHandler : IRequestHandler<UpdateContextRequest, Update
         context.RoomCount = request.ContextDto.RoomCount;
         context.ContextData = request.ContextDto.ContextData;
         context.SourceAI = request.ContextDto.SourceAI;
+        context.Type = request.ContextDto.Type ?? context.Type;
 
         await _contextRepository.UpdateAsync(context);
         await _contextRepository.SaveChangesAsync(cancellationToken);

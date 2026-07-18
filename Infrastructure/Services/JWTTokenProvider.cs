@@ -1,11 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using UserDomain.Entities;
 using UserDomain.Interface;
-using Microsoft.Extensions.Configuration;
 
 public class TokenService : ITokenService
 {
@@ -20,8 +20,9 @@ public class TokenService : ITokenService
         _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
     }
 
-    public string CreateToken(Users user)
+    public string CreateToken(Users user, out string jwtId)
     {
+        jwtId = Guid.NewGuid().ToString();
         try
         {
             var claims = new List<Claim>
@@ -29,7 +30,7 @@ public class TokenService : ITokenService
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserId.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim(JwtRegisteredClaimNames.Name, user.Name),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, jwtId)
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -49,23 +50,39 @@ public class TokenService : ITokenService
         }
         catch (Exception ex)
         {
-            // Log the error here
             throw new ApplicationException("Token generation failed", ex);
         }
     }
-    private int GetJwtExpirationMinutes()
+
+    public string GenerateRefreshToken()
+    {
+        var randomBytes = new byte[64];
+        using var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(randomBytes);
+        return Convert.ToBase64String(randomBytes);
+    }
+
+    public int GetJwtExpirationMinutes()
     {
         var expirationConfig = _config["Jwt:ExpirationInMinutes"];
         if (string.IsNullOrWhiteSpace(expirationConfig))
-        {
-            return 60; // Default fallback value
-        }
+            return 20;
 
         if (!int.TryParse(expirationConfig, out var minutes) || minutes <= 0)
-        {
-            return 60; // Default fallback value
-        }
+            return 20;
 
         return minutes;
+    }
+
+    public int GetRefreshTokenExpirationDays()
+    {
+        var config = _config["Jwt:RefreshTokenExpirationDays"];
+        if (string.IsNullOrWhiteSpace(config))
+            return 7;
+
+        if (!int.TryParse(config, out var days) || days <= 0)
+            return 7;
+
+        return days;
     }
 }

@@ -14,9 +14,18 @@ public class Rooms
     public decimal Length { get; set; }
     public decimal Width { get; set; }
     public decimal Height { get; set; }
+    public decimal? Area { get; set; }
 
     [MaxLength(20)]
     public string Unit { get; set; } = "ft";
+
+    [MaxLength(20)]
+    public string RoomType { get; set; } = "HomeSingle";
+
+    [MaxLength(50)]
+    public string? CeilingType { get; set; }
+
+    public Guid? RoomGroupId { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public DateTime UpdatedAt { get; set; } = DateTime.Now;

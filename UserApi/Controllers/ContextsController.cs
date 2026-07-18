@@ -56,6 +56,13 @@ public class ContextsController : BaseController
         return HandleDeleteResult("Context deleted successfully");
     }
 
+    [HttpGet("type/{type}")]
+    public async Task<IActionResult> GetByType(string type)
+    {
+        var result = await _mediator.Send(new GetContextByTypeRequest { Type = type });
+        return HandleResult(result);
+    }
+
     [HttpPost("ask")]
     public async Task<IActionResult> Ask([FromBody] List<MessageDto> context, CancellationToken ct)
     {

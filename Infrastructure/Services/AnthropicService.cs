@@ -33,19 +33,18 @@ public class AnthropicService : IAnthropicService
         var payload = new
         {
             model = _model,
-            max_tokens = 1024,
+            max_tokens = 2048,
             messages
         };
 
-        var content = new StringContent(JsonSerializer.Serialize(payload, _jsonOptions), Encoding.UTF8, "application/json");
-         var resp = await _http.PostAsync("v1/messages", content, cancellationToken);
+        var json = JsonSerializer.Serialize(payload, _jsonOptions);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        var resp = await _http.PostAsync("v1/messages", content, cancellationToken);
         var raw = await resp.Content.ReadAsStringAsync(cancellationToken);
         if (!resp.IsSuccessStatusCode)
             throw new HttpRequestException($"Claude API [{(int)resp.StatusCode}]: {raw}");
 
         resp.EnsureSuccessStatusCode();
-        
-
         return raw;
     }
 
@@ -56,12 +55,39 @@ public class AnthropicService : IAnthropicService
         foreach (var m in context)
         {
             if (string.Equals(m.Role, "system", StringComparison.OrdinalIgnoreCase))
-                continue; // handled separately if needed via system param
+                continue;
+
+            var contentBlocks = new List<object>();
+
+            if (m.Images != null && m.Images.Count > 0)
+            {
+                if (!string.IsNullOrEmpty(m.Content))
+                {
+                    contentBlocks.Add(new { type = "text", text = m.Content });
+                }
+                foreach (var img in m.Images)
+                {
+                    contentBlocks.Add(new
+                    {
+                        type = "image",
+                        source = new
+                        {
+                            type = "base64",
+                            media_type = img.MediaType,
+                            data = img.Base64Data
+                        }
+                    });
+                }
+            }
+            else
+            {
+                contentBlocks.Add(new { type = "text", text = m.Content ?? "" });
+            }
 
             messages.Add(new
             {
-                role = m.Role.ToLower(), // "user" or "assistant"
-                content = m.Content
+                role = m.Role.ToLower(),
+                content = contentBlocks
             });
         }
 
