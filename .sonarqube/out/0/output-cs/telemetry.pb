@@ -1,1 +1,0 @@
-lR_H:\Projects for Practice\MicroServices-Implementation-Using-Ocelot\UserDomain\UserDomain.csprojòCSharp14

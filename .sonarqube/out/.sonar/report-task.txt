@@ -1,6 +1,0 @@
-projectKey=MicroservicesPRojectDecoraAI
-serverUrl=http://localhost:9000
-serverVersion=26.6.0.123539
-dashboardUrl=http://localhost:9000/dashboard?id=MicroservicesPRojectDecoraAI
-ceTaskId=500524f3-a640-4a09-a82d-f9923959c73c
-ceTaskUrl=http://localhost:9000/api/ce/task?id=500524f3-a640-4a09-a82d-f9923959c73c

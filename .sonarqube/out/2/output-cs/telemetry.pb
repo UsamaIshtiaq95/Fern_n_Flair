@@ -1,1 +1,0 @@
-tRgH:\Projects for Practice\MicroServices-Implementation-Using-Ocelot\Infrastructure\Infrastructure.csprojòCSharp14
