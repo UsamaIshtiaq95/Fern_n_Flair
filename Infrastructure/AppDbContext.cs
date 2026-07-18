@@ -15,6 +15,7 @@ public class AppDbContext : DbContext
     public DbSet<Images> Images { get; set; } = null!;
     public DbSet<ApiKeys> ApiKeys { get; set; } = null!;
     public DbSet<AIResults> AIResults { get; set; } = null!;
+    public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -88,6 +89,13 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<ApiKeys>(entity =>
         {
             entity.HasIndex(e => e.ServiceName).IsUnique();
+        });
+
+        modelBuilder.Entity<RefreshToken>(entity =>
+        {
+            entity.HasIndex(e => e.Token);
+            entity.HasIndex(e => e.UserId);
+            entity.HasOne(e => e.User).WithMany().HasForeignKey(e => e.UserId).OnDelete(DeleteBehavior.Cascade);
         });
     }
 }

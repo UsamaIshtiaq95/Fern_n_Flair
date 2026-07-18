@@ -1,6 +1,8 @@
 using Application.Request;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using UserDomain;
 
 namespace UserAuthApi.Controllers;
@@ -30,6 +32,28 @@ public class AuthApiController : ControllerBase
             throw new BadRequestException("Null data inserted");
 
         var result = await _mediator.Send(request, cancellationToken);
+        return Ok(result);
+    }
+
+    [HttpPost("refresh")]
+    public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request, CancellationToken cancellationToken)
+    {
+        if (request is null)
+            throw new BadRequestException("Null data inserted");
+
+        var result = await _mediator.Send(request, cancellationToken);
+        return Ok(result);
+    }
+
+    [HttpPost("revoke")]
+    [Authorize]
+    public async Task<IActionResult> Revoke(CancellationToken cancellationToken)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+        if (userId == 0)
+            return Unauthorized();
+
+        var result = await _mediator.Send(new RevokeTokenRequest { UserId = userId }, cancellationToken);
         return Ok(result);
     }
 }

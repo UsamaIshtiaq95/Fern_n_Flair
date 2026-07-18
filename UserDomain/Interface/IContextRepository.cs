@@ -4,4 +4,5 @@ namespace UserDomain.Interface;
 
 public interface IContextRepository : IRepository<Contexts>
 {
+    Task<Contexts?> GetByTypeAsync(string type);
 }

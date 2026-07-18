@@ -48,6 +48,17 @@ public class UpdateContextResponse
     public string Message { get; set; }
 }
 
+// Context Get By Type
+public class GetContextByTypeRequest : IRequest<GetContextByTypeResponse>
+{
+    public string Type { get; set; }
+}
+
+public class GetContextByTypeResponse
+{
+    public ContextResponseDto Context { get; set; }
+}
+
 // Context Delete
 public class DeleteContextRequest : IRequest<DeleteContextResponse>
 {

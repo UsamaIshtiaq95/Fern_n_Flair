@@ -5,6 +5,7 @@ public class ContextCreateDto
     public int RoomCount { get; set; }
     public string ContextData { get; set; }
     public string SourceAI { get; set; }
+    public string Type { get; set; } = "home-single";
 }
 
 public class ContextUpdateDto
@@ -12,6 +13,7 @@ public class ContextUpdateDto
     public int RoomCount { get; set; }
     public string ContextData { get; set; }
     public string SourceAI { get; set; }
+    public string Type { get; set; } = "home-single";
 }
 
 public class ContextResponseDto
@@ -20,5 +22,6 @@ public class ContextResponseDto
     public int RoomCount { get; set; }
     public string ContextData { get; set; }
     public string SourceAI { get; set; }
+    public string Type { get; set; }
     public DateTime CreatedAt { get; set; }
 }

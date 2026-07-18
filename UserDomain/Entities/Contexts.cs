@@ -13,6 +13,11 @@ public class Contexts
     [MaxLength(50)]
     public string SourceAI { get; set; }
 
+    public int RoomCount { get; set; }
+
+    [MaxLength(50)]
+    public string Type { get; set; } = "home-single";
+
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 
     public ICollection<Chats> Chats { get; set; }

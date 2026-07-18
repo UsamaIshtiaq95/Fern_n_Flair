@@ -24,7 +24,11 @@ public class CreateRoomHandler : IRequestHandler<CreateRoomRequest, CreateRoomRe
             Length = request.RoomDto.Length,
             Width = request.RoomDto.Width,
             Height = request.RoomDto.Height,
+            Area = request.RoomDto.Area,
             Unit = request.RoomDto.Unit ?? "ft",
+            RoomType = request.RoomDto.RoomType ?? "HomeSingle",
+            CeilingType = request.RoomDto.CeilingType,
+            RoomGroupId = request.RoomDto.RoomGroupId,
             CreatedAt = DateTime.UtcNow
         };
 
@@ -40,7 +44,11 @@ public class CreateRoomHandler : IRequestHandler<CreateRoomRequest, CreateRoomRe
                 Length = createdRoom.Length,
                 Width = createdRoom.Width,
                 Height = createdRoom.Height,
+                Area = createdRoom.Area,
                 Unit = createdRoom.Unit,
+                RoomType = createdRoom.RoomType,
+                CeilingType = createdRoom.CeilingType,
+                RoomGroupId = createdRoom.RoomGroupId,
                 CreatedAt = createdRoom.CreatedAt
             },
             Message = "Room created successfully"
@@ -73,7 +81,11 @@ public class GetAllRoomsHandler : IRequestHandler<GetAllRoomsRequest, GetAllRoom
             Length = r.Length,
             Width = r.Width,
             Height = r.Height,
+            Area = r.Area,
             Unit = r.Unit,
+            RoomType = r.RoomType,
+            CeilingType = r.CeilingType,
+            RoomGroupId = r.RoomGroupId,
             CreatedAt = r.CreatedAt
         });
 
@@ -106,7 +118,11 @@ public class GetRoomByIdHandler : IRequestHandler<GetRoomByIdRequest, GetRoomByI
                 Length = room.Length,
                 Width = room.Width,
                 Height = room.Height,
+                Area = room.Area,
                 Unit = room.Unit,
+                RoomType = room.RoomType,
+                CeilingType = room.CeilingType,
+                RoomGroupId = room.RoomGroupId,
                 CreatedAt = room.CreatedAt
             }
         };
@@ -133,7 +149,9 @@ public class UpdateRoomHandler : IRequestHandler<UpdateRoomRequest, UpdateRoomRe
         room.Length = request.RoomDto.Length;
         room.Width = request.RoomDto.Width;
         room.Height = request.RoomDto.Height;
+        room.Area = request.RoomDto.Area;
         room.Unit = request.RoomDto.Unit ?? room.Unit;
+        room.CeilingType = request.RoomDto.CeilingType ?? room.CeilingType;
         room.UpdatedAt = DateTime.UtcNow;
 
         await _roomRepository.UpdateAsync(room);

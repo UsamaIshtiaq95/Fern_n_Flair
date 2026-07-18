@@ -6,7 +6,11 @@ public class RoomCreateDto
     public decimal Length { get; set; }
     public decimal Width { get; set; }
     public decimal Height { get; set; }
+    public decimal? Area { get; set; }
     public string Unit { get; set; } = "ft";
+    public string RoomType { get; set; } = "HomeSingle";
+    public string? CeilingType { get; set; }
+    public Guid? RoomGroupId { get; set; }
 }
 
 public class RoomUpdateDto
@@ -15,7 +19,9 @@ public class RoomUpdateDto
     public decimal Length { get; set; }
     public decimal Width { get; set; }
     public decimal Height { get; set; }
+    public decimal? Area { get; set; }
     public string Unit { get; set; } = "ft";
+    public string? CeilingType { get; set; }
 }
 
 public class RoomResponseDto
@@ -25,6 +31,10 @@ public class RoomResponseDto
     public decimal Length { get; set; }
     public decimal Width { get; set; }
     public decimal Height { get; set; }
+    public decimal? Area { get; set; }
     public string Unit { get; set; }
+    public string RoomType { get; set; }
+    public string? CeilingType { get; set; }
+    public Guid? RoomGroupId { get; set; }
     public DateTime CreatedAt { get; set; }
 }
